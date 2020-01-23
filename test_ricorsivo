@@ -1,0 +1,86 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled15.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyMffHdYQMma0k+NIObE5RdY",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/stefanoridolfi/ML_From_scratch/blob/master/test_ricorsivo\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DTAv16gsB-0T",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "from random import seed\n",
+        "from random import randrange\n",
+        "seed(1)\n",
+        "def princip(node):\n",
+        "  left, right =node['groups']\n",
+        "  if len(left)<=2:\n",
+        "    return\n",
+        "  else:\n",
+        "    node['left']=get_split(left)\n",
+        "    node['right']=get_split(rigth)\n",
+        "\n",
+        "def split_in2(dataset):\n",
+        "  split=0.5\n",
+        "  left=[]\n",
+        "  train_size=int(split*len(dataset))\n",
+        "  rigth=list(dataset)\n",
+        "  while len(left)  <train_size:\n",
+        "    index=randrange(len(rigth))\n",
+        "    elem=rigth.pop(index)\n",
+        "    left.append(elem)\n",
+        "  b_groups=[left, rigth]\n",
+        "  return {'groups':b_groups}\n",
+        "\n",
+        "def get_split(node):\n",
+        "    left, rigth = node['groups']\n",
+        "    b_groups=[left, rigth]\n",
+        "    print(\"left\",left)\n",
+        "    if len(left)>1:\n",
+        "      node['left']=split_in2(left)\n",
+        "      get_split(node['left'])\n",
+        "    else:\n",
+        "      return\n",
+        "\n",
+        "def build_tree(node):\n",
+        "    root = get_split(node)\n",
+        "    return root\n",
+        "  \n",
+        "dataset=[[1,2,3,],[4,5,6],[7,8,9],[10,11,12]]\n",
+        "dataset2=[[1,2,3,],[4,5,6],[7,8,9],[10,11,12],[1,2,3,],[4,5,6],[7,8,9],[10,11,12]]\n",
+        "\n",
+        "\n",
+        "\n",
+        "node=split_in2(dataset2)\n",
+        "print(\"node\",node)\n",
+        "root=build_tree(node)\n",
+        "print(\"root\",root)"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
