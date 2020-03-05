@@ -1,0 +1,81 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled24.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyO7PRGf0ZusNfHgINDVgQ4J",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/stefanoridolfi/ML_From_scratch/blob/master/KNN\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "BghWrraVJL7y",
+        "colab_type": "code",
+        "colab": {}
+      },
+      "source": [
+        "##############################################\n",
+        "import pandas as pd\n",
+        "from random import seed\n",
+        "from random import randrange\n",
+        "from csv import reader\n",
+        "from math import sqrt,exp, pi\n",
+        "\n",
+        "''' if no headers in csv\n",
+        "def load_csv(filename_url):\n",
+        "  CSV_url=filename_url\n",
+        "  pdfile=pd.read_csv(CSV_url,header=None)\n",
+        "  dataset=pdfile.values.tolist()\n",
+        "  return dataset\n",
+        "  '''\n",
+        "'''if header in csv\n",
+        "#CVS with headers ##################\n",
+        "def load_csv(filename_url):\n",
+        "  CSV_url=filename_url\n",
+        "  pdfile=pd.read_csv(CSV_url,sep=';',nrows=48)\n",
+        "  #pdfile=pd.read_csv(CSV_url,sep=';')\n",
+        "  headers=pdfile.head()\n",
+        "  dataset=pdfile.values.tolist()\n",
+        "  return dataset, list(headers)\n",
+        "  '''\n",
+        "\n",
+        "  # i daatset sono su https://github.com/jbrownlee/Datasets\n",
+        "def load_csv(filename_url):\n",
+        "  CSV_url=filename_url\n",
+        "  #pdfile=pd.read_csv(CSV_url,header=None,skiprows=749, nrows=30)\n",
+        "  pdfile=pd.read_csv(CSV_url,header=None)\n",
+        "  dataset=pdfile.values.tolist()\n",
+        "  return dataset\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n",
+        "#dataset Banknote\n",
+        "CSV_url='https://raw.githubusercontent.com/jbrownlee/Datasets/master/iris.csv'\n",
+        "\n",
+        "dataset= load_csv(CSV_url)\n",
+        "# dataset for functions test"
+      ],
+      "execution_count": 0,
+      "outputs": []
+    }
+  ]
+}
